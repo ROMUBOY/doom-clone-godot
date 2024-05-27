@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpsdlbdi0y08f"]
+
+[ext_resource type="PackedScene" uid="uid://c0xrdx1vpew84" path="res://block.tscn" id="1_rv0b0"]
+[ext_resource type="PackedScene" uid="uid://cdltnf777pb63" path="res://player.tscn" id="2_pymaq"]
+[ext_resource type="PackedScene" uid="uid://14e1v8hij8eb" path="res://enemy.tscn" id="3_3cgd4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5b4qx"]
+albedo_color = Color(0.405006, 0.0378531, 0.120381, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mh7pm"]
+
+[sub_resource type="Environment" id="Environment_be5yt"]
+background_mode = 1
+background_color = Color(0, 0.345098, 0.576471, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(9.00215, 0, 0, 0, 1, 0, 0, 0, 7.64466, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_5b4qx")
+mesh = SubResource("PlaneMesh_mh7pm")
+
+[node name="Block" parent="Environment" instance=ExtResource("1_rv0b0")]
+transform = Transform3D(1.75844, 0, 0, 0, 3.54111, 0, 0, 0, 1.58803, 0, 0.84867, 0)
+
+[node name="Block2" parent="Environment" instance=ExtResource("1_rv0b0")]
+transform = Transform3D(1.0182, 0, 0, 0, 2.81537, 0, 0, 0, 1.04586, 5.20305, 0.917927, -3.167)
+
+[node name="Block3" parent="Environment" instance=ExtResource("1_rv0b0")]
+transform = Transform3D(1.0182, 0, 0, 0, 2.81537, 0, 0, 0, 1.04586, -3.16013, 0.963656, 3.73127)
+
+[node name="Block4" parent="Environment" instance=ExtResource("1_rv0b0")]
+transform = Transform3D(1.0182, 0, 0, 0, 2.81537, 0, 0, 0, 1.04586, -6.43704, 0.963656, -4.84355)
+
+[node name="Block5" parent="Environment" instance=ExtResource("1_rv0b0")]
+transform = Transform3D(1.0182, 0, 0, 0, 2.81537, 0, 0, 0, 1.04586, 2.8595, 0.963657, 5.42841)
+
+[node name="Block6" parent="Environment" instance=ExtResource("1_rv0b0")]
+transform = Transform3D(1.0182, 0, 0, 0, 2.81537, 0, 0, 0, 1.04586, -5.53866, 0.963656, 5.62238)
+
+[node name="Block7" parent="Environment" instance=ExtResource("1_rv0b0")]
+transform = Transform3D(1.0182, 0, 0, 0, 2.81537, 0, 0, 0, 1.04586, 5.89903, 0.963656, 1.38011)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_be5yt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.446889, 0.784707, -0.429564, -0.429394, 0.609404, 0.666519, 0.7848, -0.113408, 0.609284, 0, 3.84652, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_pymaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Enemy" parent="." instance=ExtResource("3_3cgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71684, 0, -1.59122)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_3cgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250117, 0, -4.06648)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_3cgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24206, 0, -3.68636)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_3cgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93437, 0, -2.5383)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_3cgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.78289, 0, -0.138225)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_3cgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.89057, 4.76837e-07, -1.70593)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_3cgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37901, 4.76837e-07, -5.22758)
